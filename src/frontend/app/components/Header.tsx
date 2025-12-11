@@ -30,7 +30,7 @@ export default async function Header() {
             >
               <li>
                 <Link 
-                  href="/blog" 
+                  href="/pages/blog" 
                   className="font-rokkitt text-brown text-base sm:text-lg hover:underline transition-colors"
                 >
                   blog
@@ -38,7 +38,7 @@ export default async function Header() {
               </li>
               <li>
                 <Link 
-                  href="/resources" 
+                  href="/pages/resources" 
                   className="font-rokkitt text-brown text-base sm:text-lg hover:underline transition-colors"
                 >
                   resources

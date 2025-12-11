@@ -59,11 +59,11 @@ export function linkResolver(link: Link | undefined) {
       return link.href || null
     case 'page':
       if (link?.page && typeof link.page === 'string') {
-        return `/${link.page}`
+        return `/pages/${link.page}`
       }
     case 'post':
       if (link?.post && typeof link.post === 'string') {
-        return `/posts/${link.post}`
+        return `/pages/posts/${link.post}`
       }
     default:
       return null

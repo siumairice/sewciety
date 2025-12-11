@@ -10,7 +10,6 @@ export default function ResourcesPage() {
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {/* Resource cards can be added here */}
           <div className="border border-brown/20 rounded-sm p-6 bg-cream">
             <h3 className="font-rokkitt text-brown text-xl mb-3">Getting Started</h3>
             <p className="font-rokkitt text-brown/70 text-sm leading-relaxed">

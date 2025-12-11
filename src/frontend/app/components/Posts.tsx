@@ -23,7 +23,7 @@ const Post = ({post}: {post: AllPostsQueryResult[number]}) => {
       key={_id}
       className="border border-brown/20 rounded-sm p-6 bg-cream flex flex-col justify-between transition-colors hover:bg-cream/80 relative"
     >
-      <Link className="hover:text-brown/80 transition-colors" href={`/posts/${slug}`}>
+      <Link className="hover:text-brown/80 transition-colors" href={`/pages/posts/${slug}`}>
         <span className="absolute inset-0 z-10" />
       </Link>
       <div>
@@ -84,7 +84,7 @@ export const MorePosts = async ({skip, limit}: {skip: string; limit: number}) =>
   )
 }
 
-export const AllPosts = async () => {
+export const AllPosts = async ({showHeading = true}: {showHeading?: boolean}) => {
   const {data} = await sanityFetch({query: allPostsQuery})
 
   if (!data || data.length === 0) {
@@ -93,7 +93,7 @@ export const AllPosts = async () => {
 
   return (
     <Posts
-      heading="Blog"
+      heading={showHeading ? "Blog" : undefined}
       subHeading={`${data.length === 1 ? 'This blog post is' : `These ${data.length} blog posts are`} populated from your Sanity Studio.`}
     >
       {data.map((post: any) => (
