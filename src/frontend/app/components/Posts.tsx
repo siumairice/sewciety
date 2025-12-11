@@ -27,7 +27,7 @@ const Post = ({post}: {post: AllPostsQueryResult[number]}) => {
         <span className="absolute inset-0 z-10" />
       </Link>
       <div>
-        <h3 className="font-rokkitt text-2xl font-bold mb-4 leading-tight text-brown">{title}</h3>
+        <h3 className="font-rokkitt text-2xl  mb-4 leading-tight text-brown">{title}</h3>
 
         <p className="line-clamp-3 text-sm leading-6 text-brown/70 max-w-[70ch] font-rokkitt">{excerpt}</p>
       </div>
