@@ -2,6 +2,7 @@ import type {Config} from 'tailwindcss'
 import typography from '@tailwindcss/typography'
 
 export default {
+  darkMode: 'class',
   content: ['./app/**/*.{ts,tsx}', './sanity/**/*.{ts,tsx}'],
   theme: {
     container: {
@@ -99,6 +100,11 @@ export default {
         'light-green': '#C1CFA1',
         pink: '#E7CCCC',
         'dark-green': '#7B8F5F',
+        // Dark Mode Colors
+        'dark-bg': '#3F3A37',
+        'dark-olive': '#7A8D6F',
+        'dark-pink': '#E8D7D7',
+        'dark-sage': '#C9D9B7',
       },
       fontFamily: {
         sans: ['var(--font-inter)'],

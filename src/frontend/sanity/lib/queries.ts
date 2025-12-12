@@ -15,61 +15,12 @@ const postFields = /* groq */ `
 
 const linkReference = /* groq */ `
   _type == "link" => {
-    "page": page->slug.current,
     "post": post->slug.current
   }
 `
 
-const linkFields = /* groq */ `
-  link {
-      ...,
-      ${linkReference}
-      }
-`
-
-export const getPageQuery = defineQuery(`
-  *[_type == 'page' && slug.current == $slug][0]{
-    _id,
-    _type,
-    name,
-    slug,
-    heading,
-    subheading,
-    "pageBuilder": pageBuilder[]{
-      ...,
-      _type == "callToAction" => {
-        ${linkFields},
-      },
-      _type == "infoSection" => {
-        content[]{
-          ...,
-          markDefs[]{
-            ...,
-            ${linkReference}
-          }
-        }
-      },
-      _type == "heroSection" => {
-        ctaLink {
-          ...,
-          ${linkReference}
-        },
-        illustration {
-          asset->{
-            _id,
-            url,
-            metadata {
-              dimensions
-            }
-          }
-        }
-      },
-    },
-  }
-`)
-
 export const sitemapData = defineQuery(`
-  *[_type == "page" || _type == "post" && defined(slug.current)] | order(_type asc) {
+  *[_type == "post" && defined(slug.current)] {
     "slug": slug.current,
     _type,
     _updatedAt,
@@ -103,10 +54,5 @@ export const postQuery = defineQuery(`
 
 export const postPagesSlugs = defineQuery(`
   *[_type == "post" && defined(slug.current)]
-  {"slug": slug.current}
-`)
-
-export const pagesSlugs = defineQuery(`
-  *[_type == "page" && defined(slug.current)]
   {"slug": slug.current}
 `)

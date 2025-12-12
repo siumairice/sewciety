@@ -10,30 +10,19 @@
 @theme {
   --shadow-layer: 0 35px 60px -15px rgba(0, 0, 0, 0.3);
 
-  --color-framework: #000;
-  --color-black: #0b0b0b;
-  --color-white: #fff;
-  --color-brand: #f50;
-  --color-blue: #0052ff;
-  --color-yellow: #cdea19;
-  --color-gray-50: #f6f6f8;
-  --color-gray-100: #eeeef1;
-  --color-gray-200: #e3e4e8;
-  --color-gray-300: #bbbdc9;
-  --color-gray-400: #9499ad;
-  --color-gray-500: #727892;
-  --color-gray-600: #515870;
-  --color-gray-700: #383d51;
-  --color-gray-800: #252837;
-  --color-gray-900: #1b1d27;
-  --color-gray-950: #13141b;
-
   /* Figma Color Styles */
   --color-brown: #41352E;
   --color-cream: #F8F5F2;
   --color-light-green: #C1CFA1;
   --color-pink: #E7CCCC;
   --color-dark-green: #7B8F5F;
+
+  /* Dark Mode Colors */
+  --color-dark-bg: #3F3A37;
+  --color-dark-text: #F8F5F2;
+  --color-dark-olive: #7A8D6F;
+  --color-dark-pink: #E8D7D7;
+  --color-dark-sage: #C9D9B7;
 
   --font-display: 'Inter', 'sans-serif';
   --font-sans: 'Inter', 'sans-serif';
@@ -70,4 +59,15 @@
 
 .stitching-line.border-b::before {
   bottom: 0;
+}
+
+/* Dark mode stitching lines */
+.dark .stitching-line::before {
+  background: repeating-linear-gradient(
+    to right,
+    rgba(248, 245, 242, 0.3) 0,
+    rgba(248, 245, 242, 0.3) 20px,
+    transparent 20px,
+    transparent 30px
+  );
 }

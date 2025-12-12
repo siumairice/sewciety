@@ -57,10 +57,6 @@ export function linkResolver(link: Link | undefined) {
   switch (link.linkType) {
     case 'href':
       return link.href || null
-    case 'page':
-      if (link?.page && typeof link.page === 'string') {
-        return `/pages/${link.page}`
-      }
     case 'post':
       if (link?.post && typeof link.post === 'string') {
         return `/pages/posts/${link.post}`
