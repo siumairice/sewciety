@@ -3,7 +3,7 @@ import typography from '@tailwindcss/typography'
 
 export default {
   darkMode: 'class',
-  content: ['./app/**/*.{ts,tsx}', './sanity/**/*.{ts,tsx}'],
+  content: ['./app/**/*.{ts,tsx}'],
   theme: {
     container: {
       center: true,
