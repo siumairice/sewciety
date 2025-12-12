@@ -28,7 +28,9 @@ export default function HeaderNav() {
         <li>
           <Link
             className="font-rokkitt bg-brown text-cream hover:bg-brown/90 px-4 py-2 sm:px-6 sm:py-3 text-base sm:text-lg font-normal transition-colors duration-200 flex items-center gap-2"
-            href="/join"
+            href="https://docs.google.com/forms/d/e/1FAIpQLSdGC4JZmLCWyleveuSbKm_Sn6-CAmzaYDax7PD-y57G0dxEfw/viewform"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             join the club
             <span className="text-lg">→</span>

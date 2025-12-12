@@ -18,7 +18,7 @@ export default function Footer() {
             </p>
             <div className="flex flex-wrap gap-4">
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/uwsewciety"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-rokkitt text-brown dark:text-cream text-base hover:underline transition-colors"
@@ -26,7 +26,7 @@ export default function Footer() {
                 Instagram
               </a>
               <a
-                href="https://discord.com"
+                href="https://discord.com/invite/c3S7zGuVaT"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-rokkitt text-brown dark:text-cream text-base hover:underline transition-colors"

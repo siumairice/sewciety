@@ -38,7 +38,7 @@ export default function Page() {
                 text="sign me up!"
                 link={{
                   linkType: 'href',
-                  href: '/join',
+                  href: 'https://docs.google.com/forms/d/e/1FAIpQLSdGC4JZmLCWyleveuSbKm_Sn6-CAmzaYDax7PD-y57G0dxEfw/viewform',
                 }}
               />
 
