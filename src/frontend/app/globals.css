@@ -71,3 +71,68 @@
     transparent 30px
   );
 }
+
+/* MDX Content Styling */
+.prose {
+  @apply text-brown dark:text-cream;
+}
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+  @apply font-rokkitt text-brown dark:text-cream mt-8 mb-4;
+}
+
+.prose h1 {
+  @apply text-4xl;
+}
+
+.prose h2 {
+  @apply text-3xl;
+}
+
+.prose h3 {
+  @apply text-2xl;
+}
+
+.prose p {
+  @apply mb-4 leading-relaxed;
+}
+
+.prose a {
+  @apply text-brown dark:text-cream underline hover:opacity-80;
+}
+
+
+.prose ul,
+.prose ol {
+  @apply mb-4 ml-6;
+}
+
+.prose li {
+  @apply mb-2;
+}
+
+.prose img {
+  @apply rounded-lg my-6;
+}
+
+.prose blockquote {
+  @apply border-l-4 border-brown/30 dark:border-cream/30 pl-4 italic my-4;
+}
+
+.prose table {
+  @apply w-full border-collapse mb-4;
+}
+
+.prose th,
+.prose td {
+  @apply border border-brown/20 dark:border-cream/20 px-4 py-2;
+}
+
+.prose th {
+  @apply bg-brown/5 dark:bg-cream/5 font-semibold;
+}

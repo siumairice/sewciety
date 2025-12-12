@@ -1,96 +1,53 @@
-import type {Metadata, ResolvingMetadata} from 'next'
 import {notFound} from 'next/navigation'
-import {type PortableTextBlock} from 'next-sanity'
-import {Suspense} from 'react'
-
-import Avatar from '@/app/components/Avatar'
-import CoverImage from '@/app/components/CoverImage'
-import {MorePosts} from '@/app/components/Posts'
-import PortableText from '@/app/components/PortableText'
-import {sanityFetch} from '@/sanity/lib/live'
-import {postPagesSlugs, postQuery} from '@/sanity/lib/queries'
-import {resolveOpenGraphImage} from '@/sanity/lib/utils'
+import {getPostSlugs, getPostBySlug} from '@/lib/posts'
+import {CustomMDX} from '@/app/components/mdx'
+import {format} from 'date-fns'
 
 type Props = {
   params: Promise<{slug: string}>
 }
 
 export async function generateStaticParams() {
-  const {data} = await sanityFetch({
-    query: postPagesSlugs,
-    perspective: 'published',
-    stega: false,
-  })
-  return data
-}
-
-export async function generateMetadata(props: Props, parent: ResolvingMetadata): Promise<Metadata> {
-  const params = await props.params
-  const {data: post} = await sanityFetch({
-    query: postQuery,
-    params,
-    stega: false,
-  })
-  const previousImages = (await parent).openGraph?.images || []
-  const ogImage = resolveOpenGraphImage(post?.coverImage)
-
-  return {
-    authors:
-      post?.author?.firstName && post?.author?.lastName
-        ? [{name: `${post.author.firstName} ${post.author.lastName}`}]
-        : [],
-    title: post?.title,
-    description: post?.excerpt,
-    openGraph: {
-      images: ogImage ? [ogImage, ...previousImages] : previousImages,
-    },
-  } satisfies Metadata
+  const slugs = getPostSlugs()
+  return slugs.map((slug) => ({
+    slug: slug.replace(/\.mdx$/, ''),
+  }))
 }
 
 export default async function PostPage(props: Props) {
   const params = await props.params
-  const [{data: post}] = await Promise.all([sanityFetch({query: postQuery, params})])
+  const post = getPostBySlug(params.slug)
 
-  if (!post?._id) {
+  if (!post) {
     return notFound()
   }
 
   return (
-    <>
-      <div className="">
-        <div className="container my-12 lg:my-24 grid gap-12">
-          <div>
-            <div className="pb-6 grid gap-6 mb-6 border-b border-gray-100">
-              <div className="max-w-3xl flex flex-col gap-6">
-                <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-7xl">
-                  {post.title}
-                </h2>
-              </div>
-              <div className="max-w-3xl flex gap-4 items-center">
-                {post.author && post.author.firstName && post.author.lastName && (
-                  <Avatar person={post.author} date={post.date} />
-                )}
-              </div>
-            </div>
-            <article className="gap-6 grid max-w-4xl">
-              <div className="">
-                {post?.coverImage && <CoverImage image={post.coverImage} priority />}
-              </div>
-              {post.content?.length && (
-                <PortableText className="max-w-2xl" value={post.content as PortableTextBlock[]} />
-              )}
-            </article>
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
+      <article className="max-w-4xl mx-auto">
+        <header className="mb-8 pb-6 border-b border-brown/20 dark:border-cream/20">
+          <h1 className="font-perandory text-brown dark:text-cream text-4xl sm:text-5xl lg:text-6xl mb-4 transition-colors">
+            {post.meta.title}
+          </h1>
+          {post.meta.excerpt && (
+            <p className="font-rokkitt text-brown/70 dark:text-cream/70 text-lg leading-relaxed transition-colors">
+              {post.meta.excerpt}
+            </p>
+          )}
+          <div className="mt-4 flex items-center gap-4 text-sm text-brown/60 dark:text-cream/60 transition-colors">
+            {post.meta.date && (
+              <time dateTime={post.meta.date}>
+                {format(new Date(post.meta.date), 'LLLL d, yyyy')}
+              </time>
+            )}
+            {post.meta.author && <span>by {post.meta.author}</span>}
           </div>
+        </header>
+        <div className="prose prose-lg max-w-none transition-colors">
+          <CustomMDX source={post.content} />
         </div>
-      </div>
-      <div className="border-t border-gray-100 bg-gray-50">
-        <div className="container py-12 lg:py-24 grid gap-12">
-          <aside>
-            <Suspense>{await MorePosts({skip: post._id, limit: 2})}</Suspense>
-          </aside>
-        </div>
-      </div>
-    </>
+      </article>
+    </div>
   )
 }
 

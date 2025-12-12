@@ -1,23 +1,24 @@
 import Link from 'next/link'
 
-import {linkResolver} from '@/sanity/lib/utils'
-
 interface ResolvedLinkProps {
-  link: any
+  link: {
+    linkType?: string
+    href?: string
+    openInNewTab?: boolean
+  }
   children: React.ReactNode
   className?: string
 }
 
 export default function ResolvedLink({link, children, className}: ResolvedLinkProps) {
-  // resolveLink() is used to determine the type of link and return the appropriate URL.
-  const resolvedLink = linkResolver(link)
-
-  if (typeof resolvedLink === 'string') {
+  // Handle href links directly
+  if (link?.href) {
+    const isExternal = link.href.startsWith('http')
     return (
       <Link
-        href={resolvedLink}
-        target={link?.openInNewTab ? '_blank' : undefined}
-        rel={link?.openInNewTab ? 'noopener noreferrer' : undefined}
+        href={link.href}
+        target={link?.openInNewTab || isExternal ? '_blank' : undefined}
+        rel={link?.openInNewTab || isExternal ? 'noopener noreferrer' : undefined}
         className={className}
       >
         {children}

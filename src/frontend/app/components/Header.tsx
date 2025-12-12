@@ -1,14 +1,7 @@
 import Link from 'next/link'
-import Image from 'next/image'
-import {settingsQuery} from '@/sanity/lib/queries'
-import {sanityFetch} from '@/sanity/lib/live'
 import HeaderNav from './HeaderNav'
 
-export default async function Header() {
-  const {data: settings} = await sanityFetch({
-    query: settingsQuery,
-  })
-
+export default function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 w-full bg-cream">
       {/* Stitching line above */}
