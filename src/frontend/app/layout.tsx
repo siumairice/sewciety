@@ -60,13 +60,30 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
             __html: `
               (function() {
                 try {
-                  const theme = localStorage.getItem('theme');
-                  if (theme === 'dark') {
-                    document.documentElement.classList.add('dark');
+                  const manualOverride = localStorage.getItem('theme-manual');
+                  const savedTheme = localStorage.getItem('theme');
+                  
+                  // If user has manually set a preference, always use it
+                  if (manualOverride === 'true' && (savedTheme === 'dark' || savedTheme === 'light')) {
+                    if (savedTheme === 'dark') {
+                      document.documentElement.classList.add('dark');
+                    } else {
+                      document.documentElement.classList.remove('dark');
+                    }
                   } else {
-                    document.documentElement.classList.remove('dark');
+                    // No saved preference, check system preference
+                    // Use a more reliable method to detect system preference
+                    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                    if (prefersDark) {
+                      document.documentElement.classList.add('dark');
+                    } else {
+                      document.documentElement.classList.remove('dark');
+                    }
                   }
-                } catch (e) {}
+                } catch (e) {
+                  // Fallback: remove dark class if there's an error
+                  document.documentElement.classList.remove('dark');
+                }
               })();
             `,
           }}

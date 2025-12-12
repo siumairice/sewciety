@@ -36,6 +36,11 @@
 .stitching-line {
   position: relative;
   border: none;
+  --stitch-color: rgba(65, 53, 46, 0.3);
+}
+
+.dark .stitching-line {
+  --stitch-color: rgba(248, 245, 242, 0.3);
 }
 
 .stitching-line::before {
@@ -46,11 +51,12 @@
   height: 1px;
   background: repeating-linear-gradient(
     to right,
-    rgba(65, 53, 46, 0.3) 0,
-    rgba(65, 53, 46, 0.3) 20px,
+    var(--stitch-color) 0,
+    var(--stitch-color) 20px,
     transparent 20px,
     transparent 30px
   );
+  transition: background 0.2s ease;
 }
 
 .stitching-line.border-t::before {
@@ -59,17 +65,6 @@
 
 .stitching-line.border-b::before {
   bottom: 0;
-}
-
-/* Dark mode stitching lines */
-.dark .stitching-line::before {
-  background: repeating-linear-gradient(
-    to right,
-    rgba(248, 245, 242, 0.3) 0,
-    rgba(248, 245, 242, 0.3) 20px,
-    transparent 20px,
-    transparent 30px
-  );
 }
 
 /* MDX Content Styling */

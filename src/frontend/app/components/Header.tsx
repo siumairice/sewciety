@@ -3,7 +3,7 @@ import HeaderNav from './HeaderNav'
 
 export default function Header() {
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 w-full bg-cream">
+    <header className="fixed top-0 left-0 right-0 z-50 w-full bg-cream dark:bg-brown">
       {/* Stitching line above */}
       <div className="stitching-line border-t" />
       
@@ -11,7 +11,7 @@ export default function Header() {
         <div className="flex items-center justify-between gap-4">
           {/* Logo */}
           <Link className="flex items-center" href="/">
-            <span className="font-perandory text-brown text-3xl sm:text-4xl lg:text-[48px] font-normal">
+            <span className="font-perandory text-brown dark:text-cream text-3xl sm:text-4xl lg:text-[48px] font-normal">
               sewciety
             </span>
           </Link>
