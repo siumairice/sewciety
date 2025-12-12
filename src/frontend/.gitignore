@@ -14,10 +14,6 @@
 /.next/
 /out/
 
-# sanity
-/.sanity/
-/dist/
-
 # misc
 .DS_Store
 *.pem

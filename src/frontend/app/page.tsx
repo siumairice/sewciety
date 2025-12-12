@@ -13,7 +13,7 @@ export default function Page() {
             <div className="relative order-2 lg:order-1 flex justify-center lg:justify-start">
               <div className="relative w-full max-w-md">
                 <Image
-                  src="/Sewciety Logo.svg"
+                  src="/Sewciety Logo Hoop.svg"
                   alt="SEWCIETY - Duck with sewing machine"
                   width={600}
                   height={600}
