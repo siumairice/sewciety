@@ -7,6 +7,17 @@
   padding: 0 2rem;
 }
 
+:root {
+  color-scheme: light dark;
+
+  --color-base: light-dark(#F8F5F2, #41352E);
+  --color-contrast: light-dark(#41352E, #F8F5F2);
+  --color-main-green: light-dark(#C1CFA1, #7B8F5F);
+  --color-contrast-green: light-dark(#7B8F5F, #C1CFA1);
+  --color-main-pink: light-dark(#E7CCCC, #9C7070);
+  --color-contrast-pink: light-dark(#9C7070, #E7CCCC);
+}
+
 @theme {
   --shadow-layer: 0 35px 60px -15px rgba(0, 0, 0, 0.3);
 
@@ -24,23 +35,82 @@
   --color-dark-pink: #E8D7D7;
   --color-dark-sage: #C9D9B7;
 
-  --font-display: 'Inter', 'sans-serif';
-  --font-sans: 'Inter', 'sans-serif';
+  --font-display: var(--font-rokkitt);
+  --font-sans: var(--font-rokkitt);
   --font-rokkitt: var(--font-rokkitt);
   --font-perandory: var(--font-perandory);
 
   --default-transition-duration: 250ms;
 }
 
+.nav-menu {
+  font-weight: bold;
+  font-size: 1rem;
+  color: var(--color-contrast);
+}
+
+.nav-menu:hover {
+  text-decoration: underline;
+  color: var(--color-contrast-green);
+}
+
+.nav-menu-join {
+  background-color: var(--color-contrast);
+  color: var(--color-base);
+  padding: 0.3rem 0.5rem;
+  font-weight: bold;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+}
+
+@media (min-width: 640px) {
+  .nav-menu {
+    font-weight: bold;
+    font-size: 1.3rem;
+    transition-duration: 200ms;
+    color: var(--color-contrast);
+  }
+  .nav-menu-join {
+    background-color: var(--color-contrast);
+    color: var(--color-base);
+    padding: 0.5rem 2.2rem;
+    font-weight: bold;
+    font-size: 1.3rem;
+    transition-duration: 200ms;
+    border-radius: 0.25rem;
+  }
+}
+
+.nav-menu-join:hover {
+  text-decoration: underline;
+  background-color: var(--color-contrast-green);
+}
+
+.body-link {
+  font-size: 1rem;
+  text-decoration: underline;
+  color: var(--color-contrast);
+  transition-duration: 200ms;
+}
+
+.body-link:hover {
+  color: var(--color-contrast-green);
+}
+
+.line {
+  position: relative;
+  width: 100%; 
+  height: 1px;
+  background-color: var(--color-contrast);
+  margin: 15px 0px 15px 0px;
+  opacity: 0.3;
+}
+
 /* Stitching line style to match Figma */
 .stitching-line {
   position: relative;
-  --stitch-color: rgba(65, 53, 46, 0.3);
-  border: 1px solid var(--stitch-color);
-}
-
-.dark .stitching-line {
-  --stitch-color: rgba(248, 245, 242, 0.3);
+  border: 1px solid var(--color-contrast);
+  opacity: 0.3;
 }
 
 .stitching-line::before {
@@ -51,8 +121,8 @@
   height: 1px;
   background: repeating-linear-gradient(
     to right,
-    var(--stitch-color) 0,
-    var(--stitch-color) 20px,
+    var(--color-contrast) 0,
+    var(--color-contrast) 20px,
     transparent 20px,
     transparent 40px
   );

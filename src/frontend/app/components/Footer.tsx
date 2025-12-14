@@ -21,7 +21,7 @@ export default function Footer() {
                 href="https://www.instagram.com/uwsewciety"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-rokkitt text-brown dark:text-cream text-base hover:underline transition-colors"
+                className="body-link"
               >
                 Instagram
               </a>
@@ -29,13 +29,13 @@ export default function Footer() {
                 href="https://discord.com/invite/c3S7zGuVaT"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-rokkitt text-brown dark:text-cream text-base hover:underline transition-colors"
+                className="body-link"
               >
                 Discord
               </a>
               <a
                 href="mailto:hello@sewciety.com"
-                className="font-rokkitt text-brown dark:text-cream text-base hover:underline transition-colors"
+                className="body-link"
               >
                 Email
               </a>
@@ -51,7 +51,7 @@ export default function Footer() {
               <li>
                 <Link 
                   href="/pages/blog" 
-                  className="font-rokkitt text-brown dark:text-cream text-base hover:underline transition-colors"
+                  className="body-link"
                 >
                   Blog
                 </Link>
@@ -59,7 +59,7 @@ export default function Footer() {
               <li>
                 <Link 
                   href="/pages/resources" 
-                  className="font-rokkitt text-brown dark:text-cream text-base hover:underline transition-colors"
+                  className="body-link"
                 >
                   Resources
                 </Link>
@@ -67,7 +67,7 @@ export default function Footer() {
               <li>
                 <Link 
                   href="/join" 
-                  className="font-rokkitt text-brown dark:text-cream text-base hover:underline transition-colors"
+                  className="body-link"
                 >
                   Join the Club
                 </Link>
@@ -77,11 +77,10 @@ export default function Footer() {
         </div>
 
         {/* Copyright */}
-        <div className="mt-12 pt-8 stitch-at-top border-brown/20 dark:border-cream/20">
+        <div className="line"/>
           <p className="font-rokkitt text-brown/60 dark:text-cream/60 text-sm text-center transition-colors">
             © {new Date().getFullYear()} Sewciety. All rights reserved.
           </p>
-        </div>
       </div>
       {/* Stitching line below */}
       <div className="stitching-line stitch-at-top" />

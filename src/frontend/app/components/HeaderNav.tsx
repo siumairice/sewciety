@@ -7,12 +7,12 @@ export default function HeaderNav() {
     <nav>
       <ul
         role="list"
-        className="flex items-center gap-4 md:gap-6"
+        className="flex items-center gap-3 md:gap-14"
       >
         <li>
           <Link 
             href="/pages/blog" 
-            className="font-rokkitt text-brown dark:text-cream text-base sm:text-lg hover:underline"
+            className="nav-menu"
           >
             blog
           </Link>
@@ -20,20 +20,19 @@ export default function HeaderNav() {
         <li>
           <Link 
             href="/pages/resources" 
-            className="font-rokkitt text-brown dark:text-cream text-base sm:text-lg hover:underline"
+            className="nav-menu"
           >
             resources
           </Link>
         </li>
         <li>
           <Link
-            className="font-rokkitt bg-brown dark:bg-cream text-cream dark:text-brown hover:bg-brown/90 dark:hover:bg-cream/90 px-4 py-2 sm:px-6 sm:py-3 text-base sm:text-lg font-normal transition-colors duration-200 flex items-center gap-2"
+            className="nav-menu-join"
             href="https://docs.google.com/forms/d/e/1FAIpQLSdGC4JZmLCWyleveuSbKm_Sn6-CAmzaYDax7PD-y57G0dxEfw/viewform"
             target="_blank"
             rel="noopener noreferrer"
           >
-            join the club
-            <span className="text-lg">→</span>
+            join us →
           </Link>
         </li>
       </ul>

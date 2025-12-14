@@ -7,12 +7,20 @@ export default function Header() {
       {/* Stitching line above */}
       <div className="stitching-line stitch-at-bot" />
       
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-3 mt-1">
         <div className="flex items-center justify-between gap-4">
           {/* Logo */}
           <Link className="flex items-center" href="/">
-            <span className="font-perandory text-brown dark:text-cream text-3xl sm:text-4xl lg:text-[48px] font-normal">
-              sewciety
+            <span 
+              className="font-perandory text-brown dark:text-cream text-3xl sm:text-4xl lg:text-[48px] font-normal leading-none"
+              style={{
+                display: 'inline-block',
+                height: '0.8em',
+                overflow: 'hidden',
+                verticalAlign: 'top'
+              }}
+            >
+              SEWCIETY
             </span>
           </Link>
 
