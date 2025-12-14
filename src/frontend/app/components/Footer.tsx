@@ -2,9 +2,9 @@ import Link from 'next/link'
 
 export default function Footer() {
   return (
-    <footer className="relative bg-cream dark:bg-brown border-t border-brown/20 dark:border-cream/20 transition-colors">
+    <footer className="relative bg-cream dark:bg-brown stitch-at-top border-brown/20 dark:border-cream/20 transition-colors">
       {/* Stitching line above */}
-      <div className="stitching-line border-t" />
+      <div className="stitching-line stitch-at-top" />
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
@@ -77,12 +77,14 @@ export default function Footer() {
         </div>
 
         {/* Copyright */}
-        <div className="mt-12 pt-8 border-t border-brown/20 dark:border-cream/20">
+        <div className="mt-12 pt-8 stitch-at-top border-brown/20 dark:border-cream/20">
           <p className="font-rokkitt text-brown/60 dark:text-cream/60 text-sm text-center transition-colors">
             © {new Date().getFullYear()} Sewciety. All rights reserved.
           </p>
         </div>
       </div>
+      {/* Stitching line below */}
+      <div className="stitching-line stitch-at-top" />
     </footer>
   )
 }

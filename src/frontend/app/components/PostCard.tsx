@@ -22,7 +22,7 @@ export default function PostCard({post}: PostCardProps) {
           </p>
         )}
       </div>
-      <div className="flex items-center justify-between mt-6 pt-4 border-t border-brown/10 dark:border-cream/10">
+      <div className="flex items-center justify-between mt-6 pt-4 stitch-at-top border-brown/10 dark:border-cream/10">
         {post.date && (
           <time className="text-brown/60 dark:text-cream/60 text-xs font-mono transition-colors" dateTime={post.date}>
             {format(new Date(post.date), 'LLLL d, yyyy')}

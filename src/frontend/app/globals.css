@@ -35,8 +35,8 @@
 /* Stitching line style to match Figma */
 .stitching-line {
   position: relative;
-  border: none;
   --stitch-color: rgba(65, 53, 46, 0.3);
+  border: 1px solid var(--stitch-color);
 }
 
 .dark .stitching-line {
@@ -54,17 +54,17 @@
     var(--stitch-color) 0,
     var(--stitch-color) 20px,
     transparent 20px,
-    transparent 30px
+    transparent 40px
   );
   transition: background 0.2s ease;
 }
 
-.stitching-line.border-t::before {
-  top: 0;
+.stitching-line.stitch-at-bot::before {
+  top: 5;
 }
 
-.stitching-line.border-b::before {
-  bottom: 0;
+.stitching-line.stitch-at-top::before {
+  bottom: 5;
 }
 
 /* MDX Content Styling */

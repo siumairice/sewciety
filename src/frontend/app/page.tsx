@@ -6,7 +6,7 @@ export default function Page() {
   return (
     <>
       <section className="relative bg-cream dark:bg-brown min-h-[600px] lg:min-h-[700px] flex items-center transition-colors">
-        <div className="absolute top-0 left-0 right-0 stitching-line border-t" />
+        <div className="absolute top-0 left-0 right-0 stitching-line stitch-at-top" />
         
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
@@ -49,7 +49,7 @@ export default function Page() {
           </div>
         </div>
 
-        <div className="absolute bottom-0 left-0 right-0 stitching-line border-b" />
+        <div className="absolute bottom-0 left-0 right-0 stitching-line stitch-at-bot" />
       </section>
 
       <SectionHeader title="FEATURED PROJECTS" />

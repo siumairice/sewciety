@@ -25,7 +25,7 @@ export default async function PostPage(props: Props) {
   return (
     <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
       <article className="max-w-4xl mx-auto">
-        <header className="mb-8 pb-6 border-b border-brown/20 dark:border-cream/20">
+        <header className="mb-8 pb-6 stitch-at-bot border-brown/20 dark:border-cream/20">
           <h1 className="font-perandory text-brown dark:text-cream text-4xl sm:text-5xl lg:text-6xl mb-4 transition-colors">
             {post.meta.title}
           </h1>
