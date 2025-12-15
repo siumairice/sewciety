@@ -8,7 +8,7 @@ export default function Page() {
       <section className="relative bg-cream dark:bg-brown min-h-[600px] lg:min-h-[700px] flex items-center transition-colors">
         <div className="absolute top-0 left-0 right-0 stitching-line stitch-at-top" />
         
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 py-10 lg:py-20" style={{ width: "800" }}>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div className="relative order-2 lg:order-1 flex justify-center lg:justify-start">
               <div className="relative w-full max-w-md">
@@ -52,7 +52,7 @@ export default function Page() {
         <div className="absolute bottom-0 left-0 right-0 stitching-line stitch-at-bot" />
       </section>
 
-      <SectionHeader title="FEATURED PROJECTS" />
+      <SectionHeader title="FEATURED PROJECTS" color="pink" boxAtTop={true} />
 
       <section className="relative bg-cream dark:bg-brown min-h-[600px] transition-colors">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 ">

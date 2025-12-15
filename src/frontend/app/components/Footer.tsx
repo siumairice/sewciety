@@ -10,7 +10,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
           {/* Connect with us section */}
           <div className="lg:col-span-2">
-            <h2 className="font-perandory text-brown dark:text-cream text-2xl sm:text-3xl lg:text-4xl font-normal mb-6 transition-colors">
+            <h2 className="font-perandory text-brown dark:text-cream text-2xl sm:text-3xl lg:text-4xl font-normal mb-4 transition-colors">
               Connect with us
             </h2>
             <p className="font-rokkitt text-brown dark:text-cream text-base sm:text-lg leading-relaxed max-w-xl mb-6 transition-colors">
@@ -66,7 +66,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link 
-                  href="/join" 
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSdGC4JZmLCWyleveuSbKm_Sn6-CAmzaYDax7PD-y57G0dxEfw/viewform"
                   className="body-link"
                 >
                   Join the Club
