@@ -8,13 +8,44 @@ export default function Page() {
       <section className="relative bg-cream dark:bg-brown min-h-[600px] lg:min-h-[700px] flex items-center transition-colors">
         <div className="absolute top-0 left-0 right-0 stitching-line stitch-at-top" />
         
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 py-10 lg:py-20" style={{ width: "800" }}>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-20" style={{ width: "800" }}>
+          {/* Mobile: Stacked layout, Desktop: Side by side */}
+          <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-12 lg:items-center">
+            {/* Mobile: Heading first, Desktop: Text column */}
+            <div className="order-1 lg:order-2">
+              {/* Heading - shown on both mobile and desktop */}
+              <h1 className="font-rokkitt text-brown dark:text-cream leading-tight transition-colors text-center lg:text-left mb-8 lg:mb-0">
+                <span className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl block">
+                  JOIN THE CLUB
+                </span>
+              </h1>
+
+              {/* Desktop: Show description/button/credits here */}
+              <div className="hidden lg:block space-y-6 lg:space-y-8 mt-8">
+                <p className="font-rokkitt text-brown dark:text-cream text-lg sm:text-xl lg:text-2xl leading-relaxed max-w-xl transition-colors">
+                  Some super short copywritten description that goes here that talks about our club!!
+                </p>
+
+                <CtaButton
+                  text="sign me up!"
+                  link={{
+                    linkType: 'href',
+                    href: 'https://docs.google.com/forms/d/e/1FAIpQLSdGC4JZmLCWyleveuSbKm_Sn6-CAmzaYDax7PD-y57G0dxEfw/viewform',
+                  }}
+                />
+
+                <p className="font-rokkitt text-brown/60 dark:text-cream/60 text-sm sm:text-base pt-4 transition-colors">
+                  art credits: yujin bae
+                </p>
+              </div>
+            </div>
+
+            {/* Mobile: Image second, Desktop: Image column */}
             <div className="relative order-2 lg:order-1 flex justify-center lg:justify-start">
               <div className="relative w-full max-w-md">
                 <Image
                   src="/Sewciety Logo Hoop.svg"
-                  alt="SEWCIETY - Duck with sewing machine"
+                  alt="SEWCIETY - Goose with sewing machine"
                   width={600}
                   height={600}
                   className="w-full h-auto"
@@ -23,14 +54,9 @@ export default function Page() {
               </div>
             </div>
 
-            <div className="order-1 lg:order-2 space-y-6 lg:space-y-8">
-              <h1 className="font-rokkitt text-brown dark:text-cream leading-tight transition-colors">
-                <span className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl block">
-                  JOIN THE CLUB
-                </span>
-              </h1>
-
-              <p className="font-rokkitt text-brown dark:text-cream text-lg sm:text-xl lg:text-2xl leading-relaxed max-w-xl transition-colors">
+            {/* Mobile: Description/button/credits after image */}
+            <div className="order-3 lg:hidden space-y-6 text-center">
+              <p className="font-rokkitt text-brown dark:text-cream text-lg sm:text-xl leading-relaxed transition-colors">
                 Some super short copywritten description that goes here that talks about our club!!
               </p>
 
